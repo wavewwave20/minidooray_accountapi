@@ -10,4 +10,8 @@ import lombok.Setter;
 @Setter
 @RequiredArgsConstructor
 public class AccountRegisterDto {
+    private Long accountId;
+    private String accountNickName;
+    private String accountEmail;
+    private String accountPassword;
 }

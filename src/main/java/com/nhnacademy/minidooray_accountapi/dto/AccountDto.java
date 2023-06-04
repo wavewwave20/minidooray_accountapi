@@ -11,4 +11,9 @@ import lombok.Setter;
 @Setter
 @RequiredArgsConstructor
 public class AccountDto {
+    private Long accountUUID;
+    private Long accountId;
+    private String accountNickName;
+    private String accountEmail;
+    private String accountPassword;
 }

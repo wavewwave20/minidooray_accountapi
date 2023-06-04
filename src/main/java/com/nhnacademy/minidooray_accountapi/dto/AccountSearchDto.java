@@ -10,4 +10,8 @@ import lombok.Setter;
 @Setter
 @RequiredArgsConstructor
 public class AccountSearchDto {
+    private Long accountUUID;
+    private Long accountId;
+    private String accountNickName;
+    private String accountEmail;
 }

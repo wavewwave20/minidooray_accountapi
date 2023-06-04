@@ -10,4 +10,6 @@ import lombok.Setter;
 @Setter
 @RequiredArgsConstructor
 public class AccountLoginDto {
+    private Long accountId;
+    private String accountPassword;
 }
