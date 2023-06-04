@@ -26,5 +26,6 @@ public class AccountRegisterService {
 
     public AccountRegisterDto updateAccount(Long id, AccountRegisterDto accountRegisterDto) {
         accountRepository.findAccountByUserId(id);
+
     }
 }
