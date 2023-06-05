@@ -26,15 +26,13 @@ public class UserService {
         List<User> users = userRepository.findByUserId(loginRequestDto.getUserId());
 
         for(User user : users) {
-            if(user.getUserPassword().equals(loginRequestDto.getUserPassword())) {
-                LoginResponseDto loginResponseDto = new LoginResponseDto();
-                loginResponseDto.setUserUUID(user.getUserUUID());
-                loginResponseDto.setUserId(user.getUserId());
-                loginResponseDto.setUserNickname(user.getUserNickname());
-                return loginResponseDto;
-            } else {
-                throw new InvalidLoginRequest();
-            }
+            LoginResponseDto loginResponseDto = new LoginResponseDto();
+            loginResponseDto.setUserUUID(user.getUserUUID());
+            loginResponseDto.setUserId(user.getUserId());
+            loginResponseDto.setUserNickname(user.getUserNickname());
+            loginResponseDto.setUserPassword(user.getUserPassword());
+            return loginResponseDto;
+
         }
         throw new InvalidLoginRequest();
     }

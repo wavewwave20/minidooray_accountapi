@@ -11,4 +11,6 @@ public class LoginResponseDto {
     private String userId;
 
     private String userNickname;
+
+    private String userPassword;
 }
