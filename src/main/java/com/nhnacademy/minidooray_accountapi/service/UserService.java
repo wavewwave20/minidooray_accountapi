@@ -52,8 +52,8 @@ public class UserService {
         User user = new User();
         user.setUserUUID(UUID.randomUUID().toString());
         user.setUserId(signUpRequestDto.getUserId());
-        user.setUserPassword(signUpRequestDto.getUserPassword());
-        user.setUserNickname(signUpRequestDto.getUserNickname());
+        user.setUserPassword(signUpRequestDto.getPassword());
+        user.setUserNickname(signUpRequestDto.getUserNickName());
         user.setUserEmail(signUpRequestDto.getUserEmail());
         userRepository.save(user);
     }
