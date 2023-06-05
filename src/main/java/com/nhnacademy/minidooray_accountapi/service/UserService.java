@@ -31,6 +31,7 @@ public class UserService {
             loginResponseDto.setUserId(user.getUserId());
             loginResponseDto.setUserNickname(user.getUserNickname());
             loginResponseDto.setUserPassword(user.getUserPassword());
+            loginResponseDto.setUserEmail(user.getUserEmail());
             return loginResponseDto;
 
         }

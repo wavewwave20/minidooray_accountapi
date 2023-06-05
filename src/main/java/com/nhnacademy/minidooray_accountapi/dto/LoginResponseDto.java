@@ -13,4 +13,6 @@ public class LoginResponseDto {
     private String userNickname;
 
     private String userPassword;
+
+    private String userEmail;
 }
