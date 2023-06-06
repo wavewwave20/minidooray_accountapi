@@ -30,9 +30,20 @@ public class UserDataSearchService {
     }
 
 
-    public UserDataSearchDto getUserDataByUserId(String userId) {
-        return userRepository.findUserDataByUserId(userId);
+    public UserDataSearchDto getUserData(String userId) {
+        List<User> users = userRepository.findByUserId(userId);;
+
+        UserDataSearchDto result = new UserDataSearchDto();
+        if (!users.isEmpty()) {
+            User user = users.get(0);
+            result.setUserId(user.getUserId());
+            result.setUserNickName(user.getUserNickname());
+            result.setUserEmail(user.getUserEmail());
+        }
+
+        return result;
     }
+
 
 //    public void updateUserDataByUserId(String userId, UserDataSearchDto userDataSearchDto) {
 //        userRepository.updateUserDataByUserId(userId, userDataSearchDto);

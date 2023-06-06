@@ -13,7 +13,9 @@ public interface UserRepository extends JpaRepository<User, String> {
     List<User> findAll();
 
 
-    UserDataSearchDto findUserDataByUserId(String userId);
+   public User findUserByUserId(String userId);
+
+
 //#TODO: updateUserDataByUserId() 구현
 
 //    void updateUserDataByUserId(String userId, UserDataSearchDto userDataSearchDto);
