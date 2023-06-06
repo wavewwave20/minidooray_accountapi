@@ -19,21 +19,21 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public LoginResponseDto login(LoginRequestDto loginRequestDto) {
-        List<User> users = userRepository.findByUserId(loginRequestDto.getUserId());
-
-        for(User user : users) {
-            LoginResponseDto loginResponseDto = new LoginResponseDto();
-            loginResponseDto.setUserUUID(user.getUserUUID());
-            loginResponseDto.setUserId(user.getUserId());
-            loginResponseDto.setUserNickname(user.getUserNickname());
-            loginResponseDto.setUserPassword(user.getUserPassword());
-            loginResponseDto.setUserEmail(user.getUserEmail());
-            return loginResponseDto;
-
-        }
-        throw new InvalidLoginRequest();
-    }
+//    public LoginResponseDto login(LoginRequestDto loginRequestDto) {
+//        List<User> users = userRepository.findByUserId(loginRequestDto.getUserId());
+//
+//        for (User user : users) {
+//            LoginResponseDto loginResponseDto = new LoginResponseDto();
+//            loginResponseDto.setUserUUID(user.getUserUUID());
+//            loginResponseDto.setUserId(user.getUserId());
+//            loginResponseDto.setUserNickname(user.getUserNickname());
+//            loginResponseDto.setUserPassword(user.getUserPassword());
+//            loginResponseDto.setUserEmail(user.getUserEmail());
+//            return loginResponseDto;
+//
+//        }
+//        throw new InvalidLoginRequest();
+//    }
 
     public UserInfoDto getUser(String userUUID) {
         User user = userRepository.findById(userUUID).orElseThrow(InvalidLoginRequest::new);
@@ -67,11 +67,12 @@ public class UserService {
         userRepository.deleteById(userUUID);
     }
 
-    public void updateUser(UserInfoDto userInfoDto) {
-        User user = userRepository.findById(userInfoDto.getUserUUID()).orElseThrow(InvalidLoginRequest::new);
-        user.setUserId(userInfoDto.getUserId());
-        user.setUserNickname(userInfoDto.getUserNickname());
-        user.setUserEmail(userInfoDto.getUserEmail());
+    public void updateUser(String userUUID, SignUpRequestDto signUpRequestDto) {
+        User user = userRepository.findById(userUUID).orElseThrow(InvalidLoginRequest::new);
+        user.setUserId(signUpRequestDto.getUserId());
+        user.setUserPassword(signUpRequestDto.getPassword());
+        user.setUserNickname(signUpRequestDto.getUserNickName());
+        user.setUserEmail(signUpRequestDto.getUserEmail());
         userRepository.save(user);
     }
 }

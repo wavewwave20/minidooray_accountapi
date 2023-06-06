@@ -27,24 +27,30 @@ public class UserApiController {
         return ResponseEntity.ok(userInfoDto);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<LoginResponseDto> postApiLogin(@RequestBody LoginRequestDto loginRequestDto) {
-        LoginResponseDto loginResponseDto = userService.login(loginRequestDto);
-        return ResponseEntity.ok(loginResponseDto);
-    }
-
-    @GetMapping("/login/{userId}")
-    public ResponseEntity<LoginResponseDto> postApiLogin(@PathVariable String userId) {
-        LoginRequestDto loginRequestDto = new LoginRequestDto();
-        loginRequestDto.setUserId(userId);
-        LoginResponseDto loginResponseDto = userService.login(loginRequestDto);
-        return ResponseEntity.ok(loginResponseDto);
-    }
+//    @PostMapping("/login")
+//    public ResponseEntity<LoginResponseDto> postApiLogin(@RequestBody LoginRequestDto loginRequestDto) {
+//        LoginResponseDto loginResponseDto = userService.login(loginRequestDto);
+//        return ResponseEntity.ok(loginResponseDto);
+//    }
+//
+//    @GetMapping("/login/{userId}")
+//    public ResponseEntity<LoginResponseDto> postApiLogin(@PathVariable String userId) {
+//        LoginRequestDto loginRequestDto = new LoginRequestDto();
+//        loginRequestDto.setUserId(userId);
+//        LoginResponseDto loginResponseDto = userService.login(loginRequestDto);
+//        return ResponseEntity.ok(loginResponseDto);
+//    }
 
     @DeleteMapping("/user/{userUUID}")
     public ResponseEntity<String> deleteApiUser(@PathVariable String userUUID) {
         userService.deleteUser(userUUID);
         return ResponseEntity.ok("Delete success.");
+    }
+
+    @PutMapping("/user/{userUUID}")
+    public ResponseEntity<String> updateApiUser(@PathVariable String userUUID, @RequestBody SignUpRequestDto signUpRequestDto) {
+        userService.updateUser(userUUID, signUpRequestDto);
+        return ResponseEntity.ok("Update success.");
     }
 
 //    @PutMapping("/user")
