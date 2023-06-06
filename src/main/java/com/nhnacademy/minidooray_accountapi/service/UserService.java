@@ -1,9 +1,6 @@
 package com.nhnacademy.minidooray_accountapi.service;
 
-import com.nhnacademy.minidooray_accountapi.dto.LoginRequestDto;
-import com.nhnacademy.minidooray_accountapi.dto.LoginResponseDto;
-import com.nhnacademy.minidooray_accountapi.dto.SignUpRequestDto;
-import com.nhnacademy.minidooray_accountapi.dto.UserInfoDto;
+import com.nhnacademy.minidooray_accountapi.dto.*;
 import com.nhnacademy.minidooray_accountapi.entity.User;
 import com.nhnacademy.minidooray_accountapi.exception.InvalidLoginRequest;
 import com.nhnacademy.minidooray_accountapi.repository.UserRepository;
@@ -48,7 +45,7 @@ public class UserService {
         return userInfoDto;
     }
 
-    public void createUser(SignUpRequestDto signUpRequestDto) {
+    public UserRegisterAccountApiDto createUser(SignUpRequestDto signUpRequestDto) {
         User user = new User();
         user.setUserUUID(UUID.randomUUID().toString());
         user.setUserId(signUpRequestDto.getUserId());
@@ -56,6 +53,14 @@ public class UserService {
         user.setUserNickname(signUpRequestDto.getUserNickName());
         user.setUserEmail(signUpRequestDto.getUserEmail());
         userRepository.save(user);
+
+        UserRegisterAccountApiDto userRegisterAccountApiDto = new UserRegisterAccountApiDto();
+        userRegisterAccountApiDto.setUserUUID(user.getUserUUID());
+        userRegisterAccountApiDto.setUserId(user.getUserId());
+        userRegisterAccountApiDto.setUserNickName(user.getUserNickname());
+        userRegisterAccountApiDto.setUserEmail(user.getUserEmail());
+
+        return userRegisterAccountApiDto;
     }
 
     public void deleteUser(String userUUID) {
