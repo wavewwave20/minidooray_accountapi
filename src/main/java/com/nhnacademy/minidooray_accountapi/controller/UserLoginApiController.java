@@ -5,13 +5,12 @@ import com.nhnacademy.minidooray_accountapi.dto.LoginResponseDto;
 import com.nhnacademy.minidooray_accountapi.service.UserLoginServce;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/login")
-public class LoginApiController {
+public class UserLoginApiController {
 
     private final UserLoginServce userLoginService;
 

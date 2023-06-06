@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/accountapi")
-public class UserApiController {
+public class UserCRUDApiController {
     private final UserService userService;
 
-    public UserApiController(UserService userService) {
+    public UserCRUDApiController(UserService userService) {
         this.userService = userService;
     }
 
