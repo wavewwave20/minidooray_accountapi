@@ -21,7 +21,7 @@ public class UserDataSearchService {
         for (User user : users) {
             UserDataSearchDto dto = new UserDataSearchDto();
             dto.setUserId(user.getUserId());
-            dto.setUserNickname(user.getUserNickname());
+            dto.setUserNickName(user.getUserNickname());
             dto.setUserEmail(user.getUserEmail());
             result.add(dto);
         }

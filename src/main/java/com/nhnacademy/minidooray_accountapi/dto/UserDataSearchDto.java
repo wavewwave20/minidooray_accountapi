@@ -9,7 +9,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class UserDataSearchDto {
     private String userId;
-    private String userNickname;
+    private String userNickName;
     private String userEmail;
 }
 

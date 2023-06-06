@@ -23,7 +23,7 @@ public class UserCRUDService {
 //            LoginResponseDto loginResponseDto = new LoginResponseDto();
 //            loginResponseDto.setUserUUID(user.getUserUUID());
 //            loginResponseDto.setUserId(user.getUserId());
-//            loginResponseDto.setUserNickname(user.getUserNickname());
+//            loginResponseDto.setUserNickName(user.getUserNickName());
 //            loginResponseDto.setUserPassword(user.getUserPassword());
 //            loginResponseDto.setUserEmail(user.getUserEmail());
 //            return loginResponseDto;
