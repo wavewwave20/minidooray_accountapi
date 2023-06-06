@@ -12,5 +12,6 @@ public class UserInfoDto {
 
     private String userNickname;
 
+
     private String userEmail;
 }

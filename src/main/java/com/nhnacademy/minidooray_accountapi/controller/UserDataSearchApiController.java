@@ -24,10 +24,12 @@ public class UserDataSearchApiController {
         return userDataSearchService.getUserDataByUserId(userId);
     }
 
-    @PutMapping("/{id}")
-    public void updateUserDataById(String userId, UserDataSearchDto userDataSearchDto) {
-        userDataSearchService.updateUserDataByUserId(userId, userDataSearchDto);
-    }
+    //#TODO: updateUserDataById() 구현
+
+//    @PutMapping("/{id}")
+//    public void updateUserDataById(String userId, UserDataSearchDto userDataSearchDto) {
+//        userDataSearchService.updateUserDataByUserId(userId, userDataSearchDto);
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteUserDataById(String userId) {

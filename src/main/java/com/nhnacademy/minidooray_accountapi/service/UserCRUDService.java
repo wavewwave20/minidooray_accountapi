@@ -38,7 +38,8 @@ public class UserCRUDService {
         userInfoDto.setUserUUID(user.getUserUUID());
         userInfoDto.setUserId(user.getUserId());
         userInfoDto.setUserNickname(user.getUserNickname());
-        userInfoDto.setUserEmail(user.getUserEmail());
+        //#TODO 유저 데이터베이스에 이메일 필요할듯합니다?
+//        userInfoDto.setUserEmail(user.getUserEmail());
         return userInfoDto;
     }
 
