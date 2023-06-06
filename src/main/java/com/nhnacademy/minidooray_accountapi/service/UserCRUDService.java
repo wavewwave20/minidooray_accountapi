@@ -4,18 +4,15 @@ import com.nhnacademy.minidooray_accountapi.dto.*;
 import com.nhnacademy.minidooray_accountapi.entity.User;
 import com.nhnacademy.minidooray_accountapi.exception.InvalidLoginRequest;
 import com.nhnacademy.minidooray_accountapi.repository.UserRepository;
-import lombok.Setter;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
-public class UserService {
+public class UserCRUDService {
     UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserCRUDService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
