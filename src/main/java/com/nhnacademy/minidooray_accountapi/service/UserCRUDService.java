@@ -65,12 +65,18 @@ public class UserCRUDService {
         userRepository.deleteById(userUUID);
     }
 
-    public void updateUser(String userUUID, SignUpRequestDto signUpRequestDto) {
+    public UserUpdateResponseDto updateUser(String userUUID, SignUpRequestDto signUpRequestDto) {
         User user = userRepository.findById(userUUID).orElseThrow(InvalidLoginRequest::new);
         user.setUserId(signUpRequestDto.getUserId());
         user.setUserPassword(signUpRequestDto.getPassword());
         user.setUserNickname(signUpRequestDto.getUserNickName());
         user.setUserEmail(signUpRequestDto.getUserEmail());
         userRepository.save(user);
+
+        UserUpdateResponseDto userUpdateResponseDto = new UserUpdateResponseDto();
+        userUpdateResponseDto.setUserId(user.getUserId());
+        userUpdateResponseDto.setUserNickname(user.getUserPassword());
+        userUpdateResponseDto.setUserEmail(user.getUserEmail());
+        return userUpdateResponseDto;
     }
 }

@@ -48,9 +48,9 @@ public class UserCRUDApiController {
     }
 
     @PutMapping("/user/{userUUID}")
-    public ResponseEntity<String> updateApiUser(@PathVariable String userUUID, @RequestBody SignUpRequestDto signUpRequestDto) {
-        userCRUDService.updateUser(userUUID, signUpRequestDto);
-        return ResponseEntity.ok("Update success.");
+    public ResponseEntity<UserUpdateResponseDto> updateApiUser(@PathVariable String userUUID, @RequestBody SignUpRequestDto signUpRequestDto) {
+        UserUpdateResponseDto userUpdateResponseDto = userCRUDService.updateUser(userUUID, signUpRequestDto);
+        return ResponseEntity.ok(userUpdateResponseDto);
     }
 
 //    @PutMapping("/user")
