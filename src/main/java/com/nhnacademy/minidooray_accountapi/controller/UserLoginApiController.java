@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/accountapi/login")
+@RequestMapping("/api/account")
 public class UserLoginApiController {
 
     private final UserLoginServce userLoginService;
 
-    @PostMapping("/")
+    @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> postApiLogin(@RequestBody LoginRequestDto loginRequestDto) {
         LoginResponseDto loginResponseDto = userLoginService.login(loginRequestDto);
         return ResponseEntity.ok(loginResponseDto);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/login/{userId}")
     public ResponseEntity<LoginResponseDto> postApiLogin(@PathVariable String userId) {
         LoginRequestDto loginRequestDto = new LoginRequestDto();
         loginRequestDto.setUserId(userId);

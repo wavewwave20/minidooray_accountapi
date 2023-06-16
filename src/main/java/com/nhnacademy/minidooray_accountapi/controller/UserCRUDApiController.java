@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/accountapi")
+@RequestMapping("/api/account")
 public class UserCRUDApiController {
     private final UserCRUDService userCRUDService;
 
@@ -14,14 +14,14 @@ public class UserCRUDApiController {
         this.userCRUDService = userCRUDService;
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/users")
     public ResponseEntity<UserRegisterAccountApiDto> postApiSignup(@RequestBody SignUpRequestDto signUpRequestDto) {
         UserRegisterAccountApiDto result = userCRUDService.createUser(signUpRequestDto);
 
         return ResponseEntity.status(201).body(result);
     }
 
-    @GetMapping("/userInfo/{userUUID}")
+    @GetMapping("/users/{userUUID}")
     public ResponseEntity<UserInfoDto> getApiUsers(@PathVariable String userUUID) {
         UserInfoDto userInfoDto = userCRUDService.getUser(userUUID);
         return ResponseEntity.ok(userInfoDto);
@@ -41,13 +41,13 @@ public class UserCRUDApiController {
 //        return ResponseEntity.ok(loginResponseDto);
 //    }
 
-    @DeleteMapping("/user/{userUUID}")
+    @DeleteMapping("/users/{userUUID}")
     public ResponseEntity<String> deleteApiUser(@PathVariable String userUUID) {
         userCRUDService.deleteUser(userUUID);
         return ResponseEntity.ok("Delete success.");
     }
 
-    @PutMapping("/user/{userUUID}")
+    @PutMapping("/users/{userUUID}")
     public ResponseEntity<UserUpdateResponseDto> updateApiUser(@PathVariable String userUUID, @RequestBody SignUpRequestDto signUpRequestDto) {
         UserUpdateResponseDto userUpdateResponseDto = userCRUDService.updateUser(userUUID, signUpRequestDto);
         return ResponseEntity.ok(userUpdateResponseDto);

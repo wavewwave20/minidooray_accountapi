@@ -9,16 +9,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/userdata")
+@RequestMapping("/api/account")
 public class UserDataSearchApiController {
     private final UserDataSearchService userDataSearchService;
 
-    @GetMapping("/")
+    @GetMapping("/users/data")
     public List<UserDataSearchDto> getAllUserData() {
         return userDataSearchService.getAllUserData();
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("users/data/{userId}")
     public UserDataSearchDto getUserDataByUserId(@PathVariable String userId) {
         return userDataSearchService.getUserData(userId);
     }
@@ -30,7 +30,7 @@ public class UserDataSearchApiController {
 //        userDataSearchService.updateUserDataByUserId(userId, userDataSearchDto);
 //    }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("users/data/{userId}")
     public void deleteUserDataById(@PathVariable String userId) {
         userDataSearchService.deleteUserDataByUserId(userId);
     }
